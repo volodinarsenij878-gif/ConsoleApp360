@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program5
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            // Пример карты архипелага: 'L' — суша, '.' — вода
+            string[] map = new string[]
+            {
+            "....LLL.....",
+            "...LLLLL....",
+            "..LLLLLLL...",
+            "...LL.LLL...",
+            "....LLLL....",
+            ".....LL....."
+            };
+
+            foreach (var row in map)
+            {
+                foreach (char cell in row)
+                {
+                    if (cell == 'L')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(cell);
+                        Console.ResetColor(); // сразу сбрасываем цвет, чтобы не «покрасить» остальное
+                    }
+                    else
+                    {
+                        // воду можно оставить белым или задать свой цвет
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.Write(cell);
+                        Console.ResetColor();
+                    }
+                }
+                Console.WriteLine(); // переход на новую строку после каждой строки карты
+            }
+
+            Console.WriteLine("\nКарта архипелага выведена.");
+        }
+    }
+}
